@@ -13,6 +13,15 @@ Only Windows is supported.
 
 Based on http://timgolden.me.uk/python/win32_how_do_i/print.html
 """
+__version__ = "1.0.0"
+
+"""
+Change log
+----------
+Version 1.0.0  2022-07-24
+-------------------------
+Initial release
+"""
 
 
 def spec(image, width=None, height=None, horizontal_offset=None, vertical_offset=None, unit=None):
@@ -113,7 +122,6 @@ def pil_printer(*image, width=None, height=None, horizontal_offset=0, vertical_o
     vertical_offset_default = vertical_offset
     unit_default = unit
 
-    print(image)
     for image in image[:]:
         if isinstance(image, dict):
             width = width_default if image["width"] is None else image["width"]

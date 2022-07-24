@@ -139,6 +139,6 @@ def spec(image, width=None, height=None, horizontal_offset=None, vertical_offset
     -------
     spec : dict
         to be used as image in call to pil_printer
+```
 
-'''
 
