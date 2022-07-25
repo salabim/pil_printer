@@ -15,15 +15,6 @@ Based on http://timgolden.me.uk/python/win32_how_do_i/print.html
 """
 __version__ = "1.0.0"
 
-"""
-Change log
-----------
-Version 1.0.0  2022-07-24
--------------------------
-Initial release
-"""
-
-
 def spec(image, width=None, height=None, horizontal_offset=None, vertical_offset=None, unit=None):
     """
     Prepares an image to be printed with custom properties
