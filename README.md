@@ -44,8 +44,12 @@ pil_printer("a.jpg", width=10, printer="EPSON WF-3725")
 The image parameter doesn't have to be a filename. It can also be a PIL image, either
 created by loading a file or using PIL primitives:
 ```
-image = Image.load("a.jpg")
-pil_printer(image, width=10, printer="EPSON WF-3725")
+from pil_printer import pil_printer, spec
+from PIL import ImageDraw
+im = Image.new(mode="RGBA", size=(1000, 1000), color=(255, 255, 255))
+d = ImageDraw.Draw(im=im)
+d.rectangle(xy=(100, 100, 900, 900), outline=(0, 0, 0))
+pil_printer(im)
 ```
 So far, we've just printed one image on a page.
 Instead of the image parameter, however multiple files/images may be specified:

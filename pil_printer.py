@@ -15,6 +15,7 @@ Based on http://timgolden.me.uk/python/win32_how_do_i/print.html
 """
 __version__ = "1.0.0"
 
+
 def spec(image, width=None, height=None, horizontal_offset=None, vertical_offset=None, unit=None):
     """
     Prepares an image to be printed with custom properties
@@ -182,6 +183,11 @@ def pil_printer(*image, width=None, height=None, horizontal_offset=0, vertical_o
 
 
 if __name__ == "__main__":
-    file_name = "a.jpg"
-    im = file_name
-    pil_printer(spec(im, horizontal_offset=2, width=10), spec(im, vertical_offset=10), width=5, horizontal_offset=0, vertical_offset=5, unit="cm")
+    from PIL import ImageDraw
+
+    im = Image.new(mode="RGBA", size=(1000, 1000), color=(255, 255, 255))
+    d = ImageDraw.Draw(im=im)
+    for i in range(1, 10):
+        d.rectangle(xy=(i * 50, i * 50, 1000 - i * 50, 1000 - i * 50), outline=(i * 25, i * 25, 0))
+
+    pil_printer(spec(im, horizontal_offset=2, width=5), spec(im, vertical_offset=10), width=5, horizontal_offset=0, vertical_offset=4, unit="cm")
